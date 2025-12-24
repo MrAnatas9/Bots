@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: pony-town-bot
+    env: python
+    plan: free
+    region: frankfurt  # Ближайший к России
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /status
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
